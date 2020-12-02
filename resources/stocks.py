@@ -28,8 +28,6 @@ def create_stock():
     payload = request.get_json()
     print(type(payload), 'payload')
     stock = models.Stock.create(**payload)
-    print(stock.__dict__)
-    print(dir(stock))
     print(model_to_dict(stock), 'model to dict')
     stock_dict = model_to_dict(stock)
     return jsonify(data=stock_dict, status={"code": 201, "message": "Success New Ticker"})
