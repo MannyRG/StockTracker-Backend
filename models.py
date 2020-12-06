@@ -23,6 +23,7 @@ class Stocks(Model):
 
 
 class Tracker(Model):
+    tile: = TextField()
     track1 = ForeignKeyField(Stocks, backref="tracked", null = True)
     track2 = ForeignKeyField(Stocks, backref="tracked", null = True)
     track3 = ForeignKeyField(Stocks, backref="tracked", null = True)
