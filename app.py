@@ -4,6 +4,8 @@ from flask_cors import CORS
 # import requests
 import models
 from resources.stocks import stock
+from resources.tracker import track
+
 DEBUG = True
 PORT = 8000
 
@@ -38,7 +40,11 @@ def index():
     return 'Route works'
 
 CORS(stock, origins=['http://localhost:3000', 'http://localhost:3000/'], supports_credentials=True)
-app.register_blueprint(stock, url_prefix='/stock_tracker/v1')
+app.register_blueprint(stock, url_prefix='/Vanta')
+
+CORS(track, origins=['http://localhost:3000', 'http://localhost:3000/'], supports_credentials=True)
+app.register_blueprint(track, url_prefix='/Vanta')
+
 
 if __name__ == '__main__':
     models.initialize()
