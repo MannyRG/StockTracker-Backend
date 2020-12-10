@@ -29,7 +29,7 @@ def new_track():
     print(type(payload), 'payload')
     # Creating models table on tracked stocks
     # stock = models.Tracker.create(**payload)
-    new_track = models.Tracker.create()
+    new_track = models.Tracker.create(**payload)
     print(model_to_dict(new_track), 'model to dict')
     new_track_dict = model_to_dict(new_track)
     return jsonify(data=new_track_dict, status={"code": 201, "message": "Success New Ticker in Tracker"})
@@ -55,7 +55,7 @@ def delete_track(id):
     print(deleted_tracks)
     return jsonify(
     data={},
-    message="Successfully deleted {} post with id {}".format(deleted_track, id),
+    message="Successfully deleted {} tracker with id {}".format(deleted_tracks, id),
     status={"code": 200, "message": "Success"}
     )
 
