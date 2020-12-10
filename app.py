@@ -35,9 +35,22 @@ def after_request(response):
     g.db.close()
     return response
 
-@app.route('/')
+
+@app.route()
 def index():
-    return 'Route works'
+    return 'vanta Back end'
+
+@app.route('/', methods=["GET"])
+def get_public_post():
+    # find the dogs and change each one to a dictionary into a new array
+    try:
+        # posts = [model_to_dict(post) for post in posts]
+        print("Hello")
+        return jsonify(data={}, status={"code": 200, "message": "Success"})
+    except models.DoesNotExist:
+        return jsonify(data={}, status={"code": 401, "message": "Error getting the resources"})
+
+
 
 CORS(stock, origins=['http://localhost:3000', 'http://localhost:3000/'], supports_credentials=True)
 app.register_blueprint(stock, url_prefix='/Vanta')
