@@ -36,9 +36,6 @@ def after_request(response):
     return response
 
 
-@app.route()
-def index():
-    return 'vanta Back end'
 
 @app.route('/', methods=["GET"])
 def get_public_post():
